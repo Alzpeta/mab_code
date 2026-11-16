@@ -1,0 +1,35 @@
+# MAB Reservation Experiment
+
+This project simulates reservation alternative offers using multi-armed bandit agents.
+
+The model generates restaurants, customers, available reservation options, and then lets different agents choose which options to display. The reservation environment simulates whether the customer accepts one of the displayed offers.
+
+## Documentation
+
+- [Configuration](docs/config.md)
+- [Customers](docs/customers.md)
+- [Restaurants and Options](docs/restaurants_and_options.md)
+- [Reservation](docs/reservation.md)
+- [Agent Description](docs/agent_description.md)
+
+## Main Files
+
+- `source/config.py`: shared configuration values.
+- `source/restaurants.py`: restaurant generation and calendars.
+- `source/customers.py`: synthetic customer generation.
+- `source/options.py`: available offer catalogue.
+- `source/reservation.py`: availability checks, acceptance model, and reservation environment.
+- `source/agents/`: bandit agent implementations.
+- `source/experiment.py`: experiment runner logic.
+- `run_scenarios.py`: scenario runner and output generation.
+
+## Outputs
+
+Experiment outputs are written into `outputs/` as CSV tables. Each scenario
+contains aggregate results, per-run rewards, option and position metrics,
+restaurant data, the complete generated customer dataset, a 200-row customer
+sample, and descriptive customer statistics. The run configuration remains in
+`config_used.json` so its nested structure is preserved for reproducibility.
+
+Included reports are in `outputs/reports/`, with figures, CSV tables, and
+scenario manifests. The runner itself does not generate charts or HTML reports.
